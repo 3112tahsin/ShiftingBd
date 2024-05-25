@@ -1,0 +1,589 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Branch {% endblock title %}
+
+{% block content %}
+
+<!-- page-title -->
+<div class="cmt-page-title-row branch-p">
+    <div class="cmt-page-title-row-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Our Branches</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="{% url 'home' %}">Home</a>
+                        </span>
+                        <span>Branch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+<!-- page-title end-->
+
+
+    <!--site-main start-->
+    <div class="bg-branch">
+         <section class="contact-page pad-30">                    
+            <div class="theme-container container">               
+                <div class="row">
+
+                    <div class="col-md-3">
+                         <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt" data-toggle="modal" data-target="#modal1">
+                        <p class="branch-tt">Dhaka City</p>
+                        </button>
+                       <!-- <div class="btv">
+                         <a class="branch-tt view" data-toggle="modal" href="#modal1">View All</a>
+                       </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                        <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for dhakaCity in dhakaCity %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Dhaka City</th>
+                            <td>{{ dhakaCity.office_name }}</td>
+                            <td>{{ dhakaCity.address }}</td>
+                            <td>{{ dhakaCity.phone_number1 }} <br> {{ dhakaCity.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt btp" data-toggle="modal" data-target="#modal2">
+                        <p class="branch-tt">Dhaka Division</p>
+                        </button>
+                        <!-- <div class="btv-v">
+                            <a class="branch-tt view all" data-toggle="modal" href="#modal2">View All</a>
+                        </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle2">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for dhakaCity in branchDhaka %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Dhaka Division</th>
+                            <td>{{ dhakaCity.office_name }}</td>
+                            <td>{{ dhakaCity.address }}</td>
+                            <td>{{ dhakaCity.phone_number1 }} <br> {{ dhakaCity.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                         <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt" data-toggle="modal" data-target="#modal3">
+                        <p class="branch-tt">Mymensingh <br> Division</p>
+                        </button>
+                         <!-- <div class="btv">
+                         <a class="branch-tt view" data-toggle="modal" href="#modal3">View All</a>
+                       </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle3" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle3">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for branchOnj in branchMymensingh %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Mymensingh Division</th>
+                            <td>{{ branchOnj.office_name }}</td>
+                            <td>{{ branchOnj.address }}</td>
+                            <td>{{ branchOnj.phone_number1 }} <br> {{ branchOnj.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                         <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt btp" data-toggle="modal" data-target="#modal4">
+                        <p class="branch-tt">Chittagong City</p>
+                        </button>
+                        <!-- <div class="btv-v">
+                            <a class="branch-tt view all" data-toggle="modal" href="#modal4">View All</a>
+                        </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle4" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle4">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for branchOnj in chittagongCity %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Chittagong City</th>
+                            <td>{{ branchOnj.office_name }}</td>
+                            <td>{{ branchOnj.address }}</td>
+                            <td>{{ branchOnj.phone_number1 }} <br> {{ branchOnj.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact-page pt-50 pb-50">                    
+            <div class="theme-container container">               
+                <div class="row">
+                    <div class="col-md-3">
+                         <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt" data-toggle="modal" data-target="#modal5">
+                        <p class="branch-tt">Chittagong <br> Division</p>
+                        </button>
+                        <!-- <div class="btv">
+                         <a class="branch-tt view" data-toggle="modal" href="#modal5">View All</a>
+                       </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle5" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle5">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for branchOnj in branchChittagong %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Chittagong Division</th>
+                            <td>{{ branchOnj.office_name }}</td>
+                            <td>{{ branchOnj.address }}</td>
+                            <td>{{ branchOnj.phone_number1 }} <br> {{ branchOnj.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt btp" data-toggle="modal" data-target="#modal6">
+                        <p class="branch-tt">Khulna Division</p>
+                        </button>
+                        <!-- <div class="btv-v">
+                            <a class="branch-tt view all" data-toggle="modal" href="#modal6">View All</a>
+                        </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle6" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle6">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for branchOnj in branchKhulna %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Khulna Division</th>
+                            <td>{{ branchOnj.office_name }}</td>
+                            <td>{{ branchOnj.address }}</td>
+                            <td>{{ branchOnj.phone_number1 }} <br> {{ branchOnj.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %} 
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                         <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt" data-toggle="modal" data-target="#modal7">
+                        <p class="branch-tt">Rajshahi Division</p>
+                        </button>
+                        <!-- <div class="btv">
+                         <a class="branch-tt view" data-toggle="modal" href="#modal7">View All</a>
+                       </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle7" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle7">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for branchOnj in branchRajshahi %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Rajshahi Division</th>
+                            <td>{{ branchOnj.office_name }}</td>
+                            <td>{{ branchOnj.address }}</td>
+                            <td>{{ branchOnj.phone_number1 }} <br> {{ branchOnj.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %} 
+                          
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                         <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt btp" data-toggle="modal" data-target="#modal8">
+                        <p class="branch-tt">Rangpur Division</p>
+                        </button>
+                        <!-- <div class="btv-v">
+                            <a class="branch-tt view all" data-toggle="modal" href="#modal8">View All</a>
+                        </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal8" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle8" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle8">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for branchOnj in branchRangpur %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Rangpur Division</th>
+                            <td>{{ branchOnj.office_name }}</td>
+                            <td>{{ branchOnj.address }}</td>
+                            <td>{{ branchOnj.phone_number1 }} <br> {{ branchOnj.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %} 
+                            
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="contact-page pt-50 pb-80">                    
+            <div class="theme-container container">               
+                <div class="row">
+                    <div class="col-md-3"> </div>
+                    <div class="col-md-3">
+                        <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt" data-toggle="modal" data-target="#modal9">
+                        <p class="branch-tt">Sylhet Division</p>
+                        </button>
+                        <div class="btv">
+                         <a class="branch-tt view" data-toggle="modal" href="#modal9"></a>
+                       </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal9" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle9" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle9">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for branchOnj in branchSylhet %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Sylhet Division</th>
+                            <td>{{ branchOnj.office_name }}</td>
+                            <td>{{ branchOnj.address }}</td>
+                            <td>{{ branchOnj.phone_number1 }} <br> {{ branchOnj.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %} 
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                         <!-- Button trigger modal -->
+                        
+                        <div class="btn-text">
+                            <button type="button" class="btn btt btp" data-toggle="modal" data-target="#modal10">
+                        <p class="branch-tt">Barisal Division</p>
+                        </button>
+                        <!-- <div class="btv-v">
+                            <a class="branch-tt view all" data-toggle="modal" href="#modal10">View All</a>
+                        </div> -->
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal10" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle10" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLongTitle10">View Branch List</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                        <thead  class="bg-top">
+                            <tr class="text-white">
+                            <th scope="col">Divisions</th>
+                            <th scope="col">Office</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for branchOnj in branchBarisal %}
+                            <tr class="color-ro1">
+                            <th scope="row" class="th">Barisal Division</th>
+                            <td>{{ branchOnj.office_name }}</td>
+                            <td>{{ branchOnj.address }}</td>
+                            <td>{{ branchOnj.phone_number1 }} <br> {{ branchOnj.phone_number2 }}</td>
+                            </tr>
+                            {% endfor %} 
+                            
+                        </tbody>
+                        </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary bt-botom" data-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+            </div>
+        </section>
+    </div>
+    <!--site-main end-->
+
+{% endblock %}

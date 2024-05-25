@@ -1,0 +1,220 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Blog Single {% endblock title %}
+
+{% block content %}
+
+<!-- page-title -->
+<div class="cmt-page-title-row blog-p">
+    <div class="cmt-page-title-row-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Blog Single</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="{% url 'home' %}">Home</a>
+                        </span>
+                        <span>Blog</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div><!-- page-title end-->
+<!--site-main start-->
+<div class="site-main">
+
+
+<div class="cmt-row sidebar cmt-sidebar-right cmt-bgcolor-grey clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-8 content-area">
+                <!-- post -->
+                <article class="post cmt-blog-single clearfix">
+                     <!-- post-featured-wrapper -->
+                    <div class="cmt-post-featured-wrapper cmt-featured-wrapper">
+                        <div class="cmt-post-featured">
+                            <img class="img-fluid" src="{{ blogObj.picture.url }}" alt="">
+                        </div>
+                    </div><!-- post-featured-wrapper end -->
+                    <!-- cmt-blog-classic-content -->
+                    <div class="cmt-blog-single-content">
+                        <div class="cmt-post-entry-header">
+                            <div class="post-meta">
+                                <span class="cmt-meta-line byline"><i class="fa fa-user"></i>By Admin</span>
+                                <span class="cmt-meta-line tags-links"><i class="fa fa-comment"></i>
+                                    {{ Comments|length }} Comments</span>
+                                
+                                <span class="cmt-meta-line entry-date"><i class="fa fa-calendar"></i>
+                                <time class="entry-date published" datetime="2020-01-28T00:39:29+00:00">
+                                     {{ blogObj.date }}
+                                </time></span>
+                            </div>
+                        </div>
+                        <div class="entry-content">
+                            <div class="cmt-box-desc-text text-justify">
+                                <p>{{ blogObj.descriptions }}</p>
+                                <p>{{ blogObj.singal_blog_details }}</p>
+                                <div class="row pb-15 pt-15">
+                                    <div class="col-sm-4">
+                                        <div class="single-gallery-image-wrap pb-15">
+                                            <img src="{{ blogObj.singal_blog_image1.url }}" class="img-fluid" alt="" style="width: 210px; height: 152px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="single-gallery-image-wrap pb-15">
+                                            <img src="{{ blogObj.singal_blog_image2.url }}" class="img-fluid" alt="" style="width: 210px; height: 152px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="single-gallery-image-wrap pb-15">
+                                            <img src="{{ blogObj.singal_blog_image3.url }}" class="img-fluid" alt="" style="width: 210px; height: 152px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <blockquote class="cmt-bgcolor-grey"><div class="qoute-text">{{ blogObj.qoute }}</div><cite>Writing By {{ blogObj.person_name }}</cite></blockquote>
+                                <h4>{{ blogObj.title }}</h4>
+                                <p>{{ blogObj.singal_blog_details2 }}</p>
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="ttm_single_image-wrapper mb-30 mt-15">
+                                            <img class="img-fluid" src="{{ blogObj.singal_blog_image4.url }}" alt="image">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mt-15 mb-30">
+                                            <h4>{{ blogObj.singal_blog_title }}</h4>
+                                            <p>{{ blogObj.singal_blog_details3 }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4>{{ blogObj.singal_blog_title2 }}</h4>
+                                <p>{{ blogObj.singal_blog_details4 }}</p>
+                                <div class="social-media-block clearfix">
+                                    <div class="media-button">
+                                       
+                                        <div class="d-sm-flex justify-content-between align-items-center">
+                                            
+                                            <ul class="social-icons circle">
+                                                <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="javascript:void(0)"><i class="fa fa-linkedin"></i></a></li>
+                                                <li><a href="javascript:void(0)"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cmt-blog-classic-box-comment clearfix">
+                                    <div id="comments" class="comments-area">
+                                        <h2 class="comments-title">Read Comments</h2>
+                                        <ol class="comment-list">
+                                            {% for Comments in Comments %}
+                                            <li>
+                                                <div class="comment-body">
+                                                    <div class="comment-author vcard">
+                                                        <img src="{% static 'images/bg-image/comment.PNG' %}" class="avatar" alt="comment-img">
+                                                    </div>
+                                                    <div class="comment-box">
+                                                        <div class="comment-meta commentmetadata">
+                                                            <div class="cmt-comment-owner">
+                                                                <h5>{{ Comments.author_name|capfirst }}</h5></div>
+                                                            <span>{{ Comments.created }}</span>
+                                                        </div>
+                                                        <div class="author-content-wrap">
+                                                            <p>{{ Comments.comment_text|capfirst }}</p>
+                                                        </div>
+                                                        <div class="reply">
+                                                            <a class="cmt-btn btn-inline cmt-btn-size-md cmt-btn-color-dark" href="#">Reply</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                        </ol>
+                                        <div class="comment-respond">
+                                            <h3 class="comment-reply-title">Leave a Reply</h3>
+                                            <form action="#" method="post" id="commentform" class="comment-form">
+                                                {% csrf_token %}
+                                                <p class="comment-notes">Your email address will not be published. </p>
+                                                <p class="comment-form-comment">
+                                                    <textarea id="comment" placeholder="Comment" name="comment_text" cols="45" rows="4" aria-required="true"></textarea>
+                                                </p>
+                                                <p class="comment-form-author">
+                                                    <input id="author" placeholder="Name (required)" name="author_name" type="text" value="" size="30" aria-required="true">
+                                                </p>
+                                                <p class="comment-form-email">
+                                                    <input id="email" placeholder="Email (required)" name="author_email" type="text" value="" size="30" aria-required="true">
+                                                </p>
+                                                <p class="comment-form-url">
+                                                    <input id="url" placeholder="Website" name="website" type="text" value="" size="30">
+                                                </p>
+                                                <p class="form-submit mt-40">
+                                                    <button class="submit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-dark" type="submit">Post Comment</button>
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div><!-- cmt-blog-classic-content end -->
+                </article><!-- post end -->
+            </div>
+            <div class="col-lg-4 widget-area sidebar-right">
+                <aside class="widget widget-search">
+                    <form role="search" method="get" class="search-form" action="{% url 'blog-single' blog_id=blogObj.id %}">
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="input-text" placeholder="Enter Your Keyboard...." value="" name="s">
+                        </label>
+                        <button class="btn" type="submit" value="Search"><i class="fas fa-search"></i> </button>
+                    </form>
+                </aside>
+                <aside class="widget widget-Categories with-title">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul>
+                        {% for popularTags in popularCatat %}
+                        <li class="active"><a href="#">{{popularTags.categories_title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+                <aside class="widget widget-recent-post with-title">
+                    <h3 class="widget-title">Recent Posts</h3>
+                    <ul class="widget-post cmt-recent-post-list">
+                        {% for blogObj in blogSit %}
+                        <li>
+                            <a href="{% url 'blog-single'  blogObj.id %}"><img class="img-fluid" 
+                                src="{{blogObj.picture.url}}" alt="post-img"></a>
+                            <span class="post-date">{{blogObj.date}}</span>
+                            <a href="{% url 'blog-single'  blogObj.id %}"> {{ blogObj.title|slice:":50" }}...</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+                <aside class="widget tagcloud-widget with-title">
+                    <h3 class="widget-title">Popular Tags</h3>
+                    <div class="tagcloud">
+                        {% for popularTags in popularTags %}
+                         <a href="#" class="tag-cloud-link">{{ popularTags.popular_tags_title }}</a>
+                        {% endfor %}
+                    </div>
+                </aside>
+                <aside class="widget widget_media_image p-0">
+                    <a href="#"><img class="img-fluid" src="{% static 'images/bg-image/banner-image.png' %}" alt="widget-banner"></a>
+                </aside>
+            </div>
+        </div><!-- row end -->
+    </div>
+</div>
+
+
+</div>
+<!--site-main end-->
+
+{% endblock %}

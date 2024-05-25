@@ -1,0 +1,72 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Md & CEO Message {% endblock title %}
+
+{% block content %}
+
+  <!-- page-title -->
+  <div class="cmt-page-title-row">
+    <div class="cmt-page-title-row-inner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <div class="page-title-heading">
+              <h2 class="title">{{ mdObj.designations }}</h2>
+            </div>
+            <div class="breadcrumb-wrapper">
+              <span>
+                <a title="Homepage" href="{% url 'home' %}">Home</a>
+              </span>
+              <span>{{ mdObj.designations }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- page-title end-->
+
+  <!--site-main start-->
+  <div class="site-main">
+    <section class="cmt-row bg-layer-equal-height clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+             <div class="login-area">
+                    <div class="login-box mdmessage">
+                        <img class="w-100" src="{{ mdObj.picture.url }}" alt="">
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="login-account">
+                <h3>{{ mdObj.name }}</h3>
+                <p>{{ mdObj.messages }}</p>
+              <div class="social-icons circle mt-30">
+                <ul class="list-inline">
+                  <li class="social-facebook">
+                    <a class="tooltip-top" target="_blank"
+                      href="{{ mdObj.facebook_link }}" data-tooltip="Facebook"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li class="social-twitter">
+                    <a class="tooltip-top" target="_blank" href="{{ mdObj.instagram_link }}"
+                      data-tooltip="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                  <li class="social-instagram">
+                    <a class="tooltip-top" target="_blank" href="{{ mdObj.google_link }}"
+                      data-tooltip="Google"><i class="fab fa-google"></i></a> </li>
+                  <li class="social-twitter">
+                    <a class="tooltip-top" target="_blank"
+                      href="{{ mdObj.twitter_link }}" data-tooltip="twitter"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!--site-main end-->
+
+{% endblock %}

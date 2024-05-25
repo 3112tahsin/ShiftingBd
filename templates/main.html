@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Shiftingbd" />
+    <meta name="author" content="https://www.shiftingbd.com/" />
+    <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1" />
+    <title> {% block title %} {% endblock title %} </title>
+
+
+    <!-- favicon icon -->
+    <link rel="shortcut icon" href="{% static 'images/Logo.png' %}" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"/>
+
+    <!-- animate -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}"/>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}"/>
+
+    <!-- themify -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/themify-icons.css' %}"/>
+
+    <!-- flaticon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}"/>
+
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}">
+
+    <!-- REVOLUTION LAYERS STYLES -->
+
+    <link rel='stylesheet' id='rs-plugin-settings-css' href="{% static 'revolution/css/rs6.css' %}"> 
+
+    <!-- prettyphoto -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prettyPhoto.css' %}">
+
+    <!-- shortcodes -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/shortcodes.css' %}"/>
+
+    <!-- main -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+
+    <!-- main -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/megamenu.css' %}"/>
+
+    <!-- responsive -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}"/>
+</head>
+    
+    <body>
+        <!--page start-->
+         <div class="page">
+            {% include 'header.html' %}
+
+            {% block content %}
+            
+            {% endblock  %}
+            
+            {% include 'footer.html' %}
+         </div>
+       
+    </body>
+     <!-- Javascript -->
+
+     <script src="{% static 'js/jquery.min.js' %}"></script>
+     <script src="{% static 'js/tether.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+     <script src="{% static 'js/jquery.easing.js' %}"></script>    
+     <script src="{% static 'js/jquery-waypoints.js' %}"></script>    
+     <script src="{% static 'js/jquery-validate.js' %}"></script> 
+     <script src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+     <script src="{% static 'js/slick.min.js' %}"></script>
+     <script src="{% static 'js/numinate.min.js' %}"></script>
+     <script src="{% static 'js/imagesloaded.min.js' %}"></script>
+     <script src="{% static 'js/jquery-isotope.js' %}"></script>
+     <script src="{% static 'js/main.js' %}"></script>
+ 
+     <!-- Revolution Slider -->
+     
+     <script src="{% static 'revolution/js/slider.js' %}"></script>
+ 
+     <!-- SLIDER REVOLUTION 6.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->    
+ 
+     <script  src="{% static 'revolution/js/revolution.tools.min.js' %}"></script>
+     <script  src="{% static 'revolution/js/rs6.min.js' %}"></script>
+ 
+     <!-- Javascript end-->
+ 
+</html>

@@ -1,0 +1,227 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Labour-Service {% endblock title %}
+
+{% block content %}
+
+ <!-- page-title -->
+ <div class="cmt-page-title-row">
+    <div class="cmt-page-title-row-inner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <div class="page-title-heading">
+              <h2 class="title">{{ labouObj.title }}</h2>
+            </div>
+            <div class="breadcrumb-wrapper">
+              <span>
+                <a title="Homepage" href="{% url 'home' %}">Home</a>
+              </span>
+              <span>{{ labouObj.title }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- page-title end-->
+ 
+  <!--site-main start-->
+  <div class="site-main">
+    <section class="cmt-row bg-layer-equal-height clearfix">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-12">
+                <!-- section title -->
+                <div> 
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ message }}
+                      </div>
+                    {% endfor %}
+                {% endif %}
+              </div>
+            <div class="section-title">
+                    <h5>{{ labouObj.title }}</h5>
+                    <h2 class="title">{{ labouObj.title }}</h2>
+                </div><!-- section title end -->
+            </div>
+            </div>
+            <div class="row mt-20">
+            <div class="col-lg-8">
+              <img class="work-all-img" src="{{ labouObj.main_image.url }}" alt="">
+            <div class="havy-page pt-20">
+                <h3>{{ labouObj.sub_title }}</h3>
+                <p>{{ labouObj.descriptions }}</p>
+                <p>{{ labouObj.descriptions2 }}</p>
+                <p>{{ labouObj.descriptions3 }}</p>
+            </div>
+            </div>
+            <div class="col-lg-4">
+            <div class="havy-app">
+                <div class="havy-app-tt">
+                <h6>{{ labouObj.title }}</h6>
+                <h4>{{ labouObj.site_title }}</h4>
+                <p> {{ labouObj.site_details }} </p>
+                </div>
+                <div class="havy-sif-bt mt-50">
+                    <a href="#havyworkerModal" data-toggle="modal" data-target="#havyworkerModal">Booking Now<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <aside class="widget widget_media_image pt-20">
+              <a href="{% url 'contact' %}"><img class="img-fluid" src="{% static 'images/bg-image/banner-image.png' %}" alt="widget-banner"></a>
+          </aside>
+            </div>
+            </div>
+        </div>
+    </section>
+  </div>
+
+  <section class="pp-table">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="shifting-price-list">
+               <table class="table">
+                <h3>Multiple Labour Demand</h3>
+                  <thead  class="bg-top-pricett">
+                    <tr class="text-white">
+                      <th scope="col">Labour Type</th>
+                      <th scope="col">Inside Dhaka</th>
+                      <th scope="col">Outside Dhaka</th>
+                      <th scope="col">Inside & Outside Dhaka</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for labourDemand in labourDemand %}
+                     <tr class="color-ro1">
+                        <th scope="row" class="th">{{ labourDemand.Labour_Type }}</th>
+                        <td>{{ labourDemand.inside_dhaka }} Tk</td>
+                        <td>{{ labourDemand.outside_dhaka }} Tk</td>
+                        <td>{{ labourDemand.onside_outside_dhaka }} Tk</td>
+                     </tr>
+                     {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
+ </section>
+
+  <section class="pb-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- section title -->
+           <div class="section-title">
+                <h5>OTHERS SERVICES</h5>
+                <h2 class="title">Others service</h2>
+            </div><!-- section title end -->
+        </div>
+        {% for laboursType in all_labour_objects %}
+        <div class="col-md-3">
+          <div class="others-services">
+            <div class="service1">
+              <h5>Explore service</h5> 
+              <h4>{{laboursType.category_title}}</h4>
+              <a href="{% url 'havy' laboursType.id %}">Read <i class="fas fa-long-arrow-alt-right"></i></a>
+            </div>  
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--site-main end-->
+
+ <!------------- Havy Worker Booking popup Start ------------------>
+ <div class="container">
+  <div class="modal fade" id="havyworkerModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content technician">
+        <div class="modal-header">
+          <h5 class="modal-title">Submit the form to contact us</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="booking-from" role="form" method="post" action="#">
+            {% csrf_token %}
+            <label for="lName">Your Name<span class="star" style="color: red">*</span></label>
+            <input type="text" name="name" class="form-control" id="lName" required />
+            <label for="number">Mobile Number <span class="star" style="color: red">*</span></label>
+            <input type="text" name="mobile_number" class="form-control" id="number" required />
+
+            <div class="from-group">
+              <label for="comment">Worker Type<span class="star" style="color: red">*</span></label >
+            <select class="form-control select" name="worker_type" aria-invalid="false" placeholder="Choose Worker" required>
+              <option value="Choose Worker">Choose Worker</option>
+              <option value="Havy Weight Worker">Havy Weight Worker</option>
+              <option value="Working Agricultural Worker">Working Agricultural Worker</option>
+              <option value="Load / Unload Worker">Load / Unload Worker</option>
+              <option value="Construction Worker">Construction Worker</option>
+              <option value="Cleaner Worker">Cleaner Worker</option>
+              <option value="Others Worker">Others Worker</option>
+            </select>
+            </div>
+
+            <div class="from-group">
+              <label for="comment">Working Time<span class="star" style="color: red">*</span></label >
+            <select class="form-control select" name="working_time" aria-invalid="false" placeholder="Choose Service Time">
+              <option value="Choose Service">Choose Service</option>
+              <option value="Working 3 Hour">Working 3 Hour</option>
+              <option value="Working 6 Hour">Working 6 Hour</option>
+              <option value="Working 1 Day">Working 1 Day</option>
+              <option value="Working 2 Day">Working 2 Day</option>
+              <option value="Working 5 Day">Working 5 Day</option>
+              <option value="Others">Others</option>
+            </select>
+            </div>
+            <div class="form-group pt-1">
+              <label for="comment">Address<span class="star" style="color: red">*</span></label >
+              <textarea class="text-input" name="address" rows="2" id="comment" required></textarea>
+            </div>
+            <div class="time-date d-flex">
+             <div class="boo">
+               <label for="datetimepicker11">Booking Date & Time</label>
+            <input
+              type="datetime-local"
+              id="meeting-time"
+              name="booking_datetime"
+              value="2020-01-30T19:30"
+              min="2018-06-07T00:00"
+              max="2031-06-14T00:00"/>
+             </div>
+             <div class="boo">
+               <label for="datetimepicker11">Working Date & Time</label>
+            <input
+              type="datetime-local"
+              id="meeting-time"
+              name="working_datetime"
+              value="2020-01-30T19:30"
+              min="2018-06-07T00:00"
+              max="2031-06-14T00:00"/>
+             </div>
+            </div>
+
+            <div class="form-group pt-1">
+              <label for="comment">Booking Details</label>
+              <textarea class="text-input" name="booking_details" rows="3" id="comment"></textarea>
+            </div>
+            <button
+              type="submit"
+              id="submit"  name="submit"
+              class="btnsubmit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-------------Havy Worker Booking popup End ------------------>
+
+{% endblock %}

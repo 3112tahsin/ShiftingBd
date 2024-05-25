@@ -1,0 +1,183 @@
+{% load static %}
+
+<!--footer start-->
+<footer class="footer widget-footer cmt-bgcolor-grey clearfix">
+    <div class="first-footer bg-img6 cmt-bg cmt-bgimage-yes cmt-bgcolor-darkgrey">
+        <div class="cmt-row-wrapper-bg-layer cmt-bg-layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-4 widget-area">  
+                   <div class="widget widget-out-link clearfix">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3 class="widget-title">Have a question? call us now</h3>
+                        <p>Office 1: +88{{ contactAddress.primary_phone_no }}<br>
+                            Office 2:+88{{ contactAddress.phone_no }}
+                        </p>
+                        <a class="cmt-btn btn-inline cmt-btn-size-sm cmt-btn-color-white" href="#">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 widget-area">  
+                   <div class="widget widget-out-link clearfix">
+                        <i class="far fa-envelope"></i>
+                        <h3 class="widget-title">Need support? Drop us an email</h3>
+                        <p>{{ contactAddress.primary_email }}<br>{{ contactAddress.email }}</p>
+                        <a class="cmt-btn btn-inline cmt-btn-size-sm cmt-btn-color-white" href="#">Our Form</a>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col-md-4 widget-area">
+                    <div class="widget widget-out-link clearfix">
+                        <i class="far fa-clock"></i>
+                        <h3 class="widget-title">We are open on</h3>
+                        <p>{{ contactAddress.office_time }}<br>{{ contactAddress.holiday }}</p>
+                        <a class="cmt-btn btn-inline cmt-btn-size-sm cmt-btn-color-white" href="#">Read More</a>
+                    </div>
+                </div>
+            </div><!-- row end -->    
+        </div>
+    </div>
+    <div class="second-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                    <div class="widget widget_text clearfix">
+                        <div class="footer-logo">
+                            <img id="footer-logo-img" class="img-center" src="{{ contactAddress.logo.url }}" alt="">
+                        </div>
+                        <div class="textwidget widget-text">
+                            <p>We proide our selves on delivering on ises for main contractors in the South land, working on projects.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                    <div class="widget widget_nav_menu clearfix">
+                       <h3 class="widget-title">Quick Links</h3>
+                        <ul id="menu-footer-quick-links">
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                            <li><a href="{% url 'blog' %}">Privacy</a></li>
+                            <li><a href="{% url 'team' %}">Our Team</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                    <div class="widget style2 widget-out-link clearfix">
+                       <h3 class="widget-title">Our Company</h3>
+                        <ul id="menu-footer-quick-links">
+                            {% for mdObj in Md %}
+                            <li><a href="{% url 'md' mdObj.id %}">{{ mdObj.designations }}</a></li>
+                            {% endfor %}
+                            <li><a href="{% url 'team' %}">Profile</a></li>
+                            <li><a href="{% url 'notice' %}">Career</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                    <div class="widget widget-social clearfix">
+                       <h3 class="widget-title">Our Newsletter</h3>
+                       <p>Subscribe to our newsletter.</p>
+                        <form class="pt-10" id="subscribe-form" method="post" action="#" data-mailchimp="true">
+                            {% csrf_token %}
+                            <div class="ttm_subscribe_form">
+                                <input type="email" name="email" placeholder="Email Address Here...." required="">
+                                <button name="submit" class="btn cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor" type="submit">go</button>
+                            </div>
+                            <div class="subscribe-response"></div>
+                        </form>
+                        <div class="social-icons circle mt-30">
+                            <ul class="list-inline">
+                                <li class="social-facebook"><a class="tooltip-top" target="_blank" href="" data-tooltip="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="social-twitter"><a class="tooltip-top" target="_blank" href="" data-tooltip="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li class="social-instagram"><a class="tooltip-top" target="_blank" href="" data-tooltip="Google"><i class="fab fa-google"></i></a></li>
+                                <li class="social-twitter"><a class="tooltip-top" target="_blank" href="" data-tooltip="twitter"><i class="fab fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer-text">
+        <div class="container">
+            <div class="row copyright">
+                <div class="col-lg-6">
+                    <div class="xub1">
+                        <span>Copyright © 2023 All right Reserved By <a href="#" class="cmt-textcolor-white">ShiftingBD</a></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                   <div class="xub">
+                     <span>Design & Developed By: <a href="https://xubisoft.com/" class="cmt-textcolor-white">XUBISOFT LTD.</a></span>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer end-->
+
+<!--back-to-top start-->
+<a id="totop" href="#top">
+    <i class="fa fa-angle-up"></i>
+</a>
+<!--back-to-top end-->
+
+</div><!-- page end -->
+
+<!------------- Booking popup Start ------------------>
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">    
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Submit the form to contact us</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                        <div class="modal-body">
+                        <form role="form" method="POST" action="#">
+                            {% csrf_token %}
+                                <label for="fName">Company Name <span class="star" style="color: red;">*</span></label>
+                                    <input type="text" name="company_name" class="form-control" id="fName" required>
+                                <label for="lName">Your Name <span class="star" style="color: red;">*</span></label>
+                                    <input type="text" name="your_name" class="form-control" id="lName" required>
+                                <label for="number">Mobile <span class="star" style="color: red;">*</span></label>
+                                    <input type="text" name="mobile" class="form-control" id="number" required>
+                                <label for="emailId">Email Id (Optional)</label>
+                                    <input type="email" name="email_id" class="form-control" id="emailId">
+                                <div class="form-group pt-1">
+                                <label for="comment">Address<span class="star" style="color: red;">*</span></label>
+                                <textarea class="text-input" name="address" rows="2" id="comment"></textarea>
+                            </div> 
+                                
+                            <label for="datetimepicker11">Booking Date & Time</label>
+                            <input
+                                    type="datetime-local"
+                                    id="meeting-time"
+                                    name="booking_datetime"
+                                    value="2020-01-30T19:30"
+                                    min="2018-06-07T00:00"
+                                    max="2031-06-14T00:00" />
+                            <label for="datetimepicker11 pt-1">Shifting Date & Time</label>
+                            <input
+                                    type="datetime-local"
+                                    id="meeting-time"
+                                    name="shifting_datetime"
+                                    value="2020-01-30T19:30"
+                                    min="2018-06-07T00:00"
+                                    max="2031-06-14T00:00" />
+                
+                            <div class="form-group pt-1">
+                                <label for="comment">Booking Details</label>
+                                <textarea class="text-input" name="booking_details" rows="3" id="comment"></textarea>
+                            </div> 
+                                <button type="submit" name="submit" id="submit" class="btnsubmit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor w-100">Submit</button>
+                            </form>
+                        </div> 
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div> -->
+                </div>
+            </div>                        
+        </div>
+    </div>
+    <!------------- Booking popup End ------------------>
+ 

@@ -1,0 +1,152 @@
+{% load static %}
+ <!-- preloader start -->
+ <div id="preloader">
+    <div id="status">&nbsp;</div>
+  </div>
+  <!-- preloader end -->
+
+  <!--header start-->
+  <header id="masthead" class="header cmt-header-style-01">
+      <!-- top_bar -->
+      <div class="top_bar cmt-bgcolor-darkgrey cmt-textcolor-white clearfix">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-6 d-flex flex-row align-items-center">
+                      <a class="cmt-btn btn-inline cmt-btn-size-sm cmt-btn-color-white cmt-icon-btn-right" href="#">track online<i class="fas fa-arrow-right"></i></a>
+                      <div class="top_bar_contact_item">
+                          <div class="top_bar_icon"></div>You can request status (pending confirmation) in 24 hours
+                      </div>
+                  </div>
+                  <div class="col-lg-6 d-flex flex-row align-items-center">
+                      <div class="top_bar_contact_item ml-auto">
+                          <div class="top_bar_icon eicon"><i class="far fa-envelope"></i></div>
+                          {{ contactAddress.primary_email }}
+                      </div>
+                      <div class="top_bar_contact_item">
+                          <div class="top_bar_icon eicon"><i class="fas fa-mobile-alt"></i></div>
+                          +88{{ contactAddress.primary_phone_no }}
+                      </div>
+                          <select name="language" id="language">
+                              <option class="lng" value="english">English</option>
+                              <option class="lng" value="bangla">Bangla</option>
+                          </select>
+                           <div class="top_bar_contact_item login">
+                         <a href="{% url 'login' %}">SIGN IN</a>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div><!-- top_bar end-->
+      <!-- site-header-menu -->
+      <div id="site-header-menu" class="site-header-menu cmt-textcolor-dark">
+          <div class="site-header-menu-inner cmt-stickable-header">
+              <div class="container">
+                  <div class="cmt-bg cmt-col-bgcolor-yes cmt-right-span cmt-bgcolor-white mb_60 res-1199-mb-0 z-index-2">
+                      <div class="cmt-col-wrapper-bg-layer cmt-bg-layer"></div>
+                      <div class="layer-content">
+                          <!--site-navigation -->
+                          <div class="site-navigation d-flex flex-row">
+                              <div class="pl-5 cmt-bgcolor-skincolor mr-30 res-1199-pl-0 res-1199-mr-0"></div>
+                              <!-- site-branding -->
+                              <div class="site-branding mr-auto">
+                                  <a class="home-link" href="{% url 'home' %}" title="Movixo" rel="home">
+                                      <img id="logo-img" class="img-center" src="{{ contactAddress.logo.url }}" alt="logo-img">
+                                  </a>
+                              </div><!-- site-branding end -->
+                              <div class="btn-show-menu-mobile menubar menubar--squeeze">
+                                  <span class="menubar-box">
+                                      <span class="menubar-inner"></span>
+                                  </span>
+                              </div>
+                              <!-- menu -->
+                              <nav class="main-menu menu-mobile" id="menu">
+                                  <ul class="menu">
+                                      <li class="mega-menu-item active">
+                                          <a href="{% url 'home' %}" class="mega-menu-link">Home</a>
+                                      </li>
+                                      <li class="mega-menu-item">
+                                          <a href="{% url 'about' %}" class="mega-menu-link">About</a>
+                                      </li>
+                                      <li class="mega-menu-item">
+                                          <a href="#" class="mega-menu-link">Overview</a>
+                                          <ul class="mega-submenu">
+                                              </li><li><a href="{% url 'team' %}">Our Team</a></li>
+                                              <li><a href="{% url 'blog' %}" class="mega-menu-link">Blog</a></li>
+                                              <li><a href="{% url 'faq' %}">Faq</a></li>
+                                              <li><a href="{% url 'testimonial' %}">Testimonial</a></li>
+                                              <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+
+                                          </ul>
+                                      </li>
+
+                                      <li class="mega-menu-item">
+                                          <a href="#" class="mega-menu-link">Services</a>
+                                          <ul class="mega-submenu">
+                                               <li>
+                                                  <a href="{% url 'truck' %}" class="mega-menu-link">Truck</a>
+                                              </li>
+                                               <li>
+                                                  <a href="{% url 'shifting-house' %}" class="mega-menu-link">Shifting</a>
+                                              </li>
+                                               <li>
+                                                  <a href="{% url 'courier' %}" class="mega-menu-link">Courier</a>
+                                              </li>
+                                              <li>
+                                                  <a href="{% url 'security' %}" class="mega-menu-link">Security</a>
+                                              </li>
+                                               <li class="mega-menu-item">
+                                                  <a href="#" class="mega-menu-link">Lebour</a>
+                                                  <ul class="mega-submenu">
+                                                    {% for labourType in all_labour_objects %}
+                                                    <li><a href="{% url 'havy' labourType.id %}">
+                                                        {{ labourType.category_title }}</a>
+                                                    </li>
+                                                    {% endfor %}
+                                                  </ul>
+                                              </li>
+                                               <li class="mega-menu-item">
+                                                  <a href="#" class="mega-menu-link"> Technician</a>
+                                                  <ul class="mega-submenu">
+                                                    {% for tecType in all_tec_objects %}
+                                                      <li><a href="{% url 'electric-tech' tecType.id %}">
+                                                        {{ tecType.category_title }}</a>
+                                                      </li>
+                                                    {% endfor %}
+                                                      
+                                                  </ul>
+                                              </li>
+                                          </ul>
+                                      </li>
+                                      <li class="mega-menu-item">
+                                          <a href="{% url 'branch' %}" class="mega-menu-link">Branches</a>
+                                      </li>
+                                      <li class="mega-menu-item">
+                                          <a href="{% url 'notice' %}" class="mega-menu-link">Notice Board</a>
+                                      </li>
+                                      <li class="mega-menu-item">
+                                          <a href="{% url 'contact' %}" class="mega-menu-link">Conatct</a>
+                                      </li>
+                                      <button type="button" data-toggle="modal" data-target="#myModal" class="book">Booking</button>
+                                  </ul>
+                              </nav>
+                              <div class="header_extra d-flex flex-row align-items-center justify-content-end">
+                                   <div class="header_search">
+                                      <a href="#" class="btn-default search_btn"><i class="fas fa-search"></i></a>
+                                      <div class="header_search_content">
+                                          <form id="searchbox" method="get" action="#">
+                                              <input class="search_query" type="text" id="search_query_top" name="s" placeholder="Enter Keyword" value="">
+                                              <button type="submit" class="btn close-search"><i class="fas fa-search"></i></button>
+                                          </form>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div><!-- site-navigation end-->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- site-header-menu end-->
+  </header>
+  <!--header end-->

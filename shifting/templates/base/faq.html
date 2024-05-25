@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Fqa {% endblock title %}
+
+{% block content %}
+
+<!-- page-title -->
+<div class="cmt-page-title-row faq-p">
+    <div class="cmt-page-title-row-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Faq</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="{% url 'home' %}">Home</a>
+                        </span>
+                        <span>Faq</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div><!-- page-title end-->
+
+
+<!--site-main start-->
+<div class="site-main">
+
+
+<section class="cmt-row bg-layer-equal-height clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- col-img-img-five -->
+                <div class="col-bg-img-five cmt-col-bgimage-yes cmt-bg pt-100 pb-90">
+                    <div class="cmt-col-wrapper-bg-layer cmt-bg-layer"></div>
+                    <div class="layer-content">
+                        <div class="d-flex justify-content-center align-items-center h-100">
+                            <div class="cmt-play-icon-btn">
+                                <div class="cmt-play-icon-animation">
+                                    <a href="https://youtu.be/7e90gBu4pas" target="_self" class="ttm_prettyphoto">
+                                        <div class="cmt-icon cmt-icon_element-fill cmt-icon_element-color-white cmt-icon_element-size-md cmt-icon_element-style-rounded">
+                                            <i class="fa fa-play"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- col-img-bg-img-one end-->
+            </div>
+            <div class="col-lg-6">
+                <div class="cmt-bg cmt-col-bgcolor-yes cmt-bgcolor-grey spacing-9 z-index-2">
+                    <div class="cmt-col-wrapper-bg-layer cmt-bg-layer">
+                        <div class="cmt-col-wrapper-bg-layer-inner"></div>
+                    </div>
+                    <div class="layer-content">
+                        <div class="pb-20">
+                            <h3>Do You Have Questions?</h3>
+                            <p>Below you’ll find answers to some of the most frequently asked question. We are constantly adding most asked question to this page.</p>
+                        </div>
+                        <div class="accordion res-991-pt-30">
+                            {% for question in question %}
+                            <!-- toggle -->
+                            <div class="toggle cmt-style-classic cmt-toggle-title-bgcolor-skincolor cmt-control-right-true">
+                                <div class="toggle-title"><a href="#">{{question.questions}}</a></div>
+                                <div class="toggle-content">
+                                    <p>{{question.questions_answer}}</p>
+                                </div>
+                            </div><!-- toggle end -->
+                            {% endfor %}
+                           
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</div><!--site-main end-->
+
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Contact Us {% endblock title %}
+
+{% block content %}
+  <!-- page-title -->
+  <div class="cmt-page-title-row contact-p">
+    <div class="cmt-page-title-row-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Contact Us</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="{% url 'home' %}">Home</a>
+                        </span>
+                        <span>Contact Us</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div><!-- page-title end-->
+
+
+<!--site-main start-->
+<div class="site-main">
+
+
+<section class="cmt-row clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="ttm_single_image-wrapper">
+                    <img class="img-fluid" src="{{ contactAddress.top_image.url }}" alt="image">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cmt-bg cmt-col-bgcolor-yes cmt-bgcolor-grey spacing-12 z-index-2">
+                    <div class="cmt-col-wrapper-bg-layer cmt-bg-layer">
+                        <div class="cmt-col-wrapper-bg-layer-inner"></div>
+                    </div>
+                    <div class="layer-content">
+                        <div> 
+                            {% if messages %}
+                                 {% for message in messages %}
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                         {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="mb-30">
+                            <h3 class="mb-5">Call Us Or Fill The Form</h3>
+                            <p>{{ contactAddress.form_title }}</p>
+                        </div>
+                        <form method="POST" action="#" class="contact__form cmt-contactform-1 wrap-form clearfix" >
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>
+                                        <span class="text-input"><input name="name" type="text" value="" placeholder="Your Name" required="required"></span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>
+                                        <span class="text-input"><input name="email" type="text" value="" placeholder="Your Email" required="required"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>
+                                        <span class="text-input"><input name="phone" type="text" value="" placeholder="Phone Number" required="required"></span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>
+                                        <span class="text-input"><input name="subject" type="text" value="" placeholder="Subject" required="required"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <label>
+                                <span class="text-input"><textarea name="messages" rows="3" placeholder="Message" required="required"></textarea></span>
+                            </label>
+                            <button name="submit" class="submit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor" type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <!--featured-icon-box-->
+                <div class="featured-icon-box border icon-align-top-content style5">
+                    <div class="featured-content">
+                        <div class="featured-title">
+                            <h5>Visit Our Place</h5>
+                        </div>
+                        <div class="featured-desc">
+                            <p>8 Branches Over The Country</p>
+                        </div>
+                    </div>
+                    <div class="featured-content-inner cmt-bgcolor-grey">
+                        <div class="featured-icon">
+                            <div class="cmt-icon cmt-icon_element-onlytxt cmt-icon_element-color-skincolor cmt-icon_element-size-md">
+                                <i class="fas fa-laptop-house"></i>
+                            </div>
+                        </div>
+                        <p class="mb-0">Phone: +88{{contactAddress.primary_phone_no}}</p>
+                        <p>Email: <a href="mailto:info@example.com">{{contactAddress.primary_email}}</a></p>
+                        <a class="cmt-btn cmt-btn-size-md btn-inline cmt-btn-color-skincolor" href="#"> GET CALL BACK</a>
+                    </div>
+                </div><!-- featured-icon-box end-->
+            </div>
+            <div class="col-md-4">
+                <!--featured-icon-box-->
+                <div class="featured-icon-box border icon-align-top-content style5">
+                    <div class="featured-content">
+                        <div class="featured-title">
+                            <h5>Quick Contact</h5>
+                        </div>
+                        <div class="featured-desc">
+                            <p>  Get Quick Touch With Us</p>
+                        </div>
+                    </div>
+                    <div class="featured-content-inner cmt-bgcolor-grey">
+                        <div class="featured-icon">
+                            <div class="cmt-icon cmt-icon_element-onlytxt cmt-icon_element-color-skincolor cmt-icon_element-size-md">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                        <p>{{contactAddress.address}}</p>
+                        <a class="cmt-btn cmt-btn-size-md btn-inline cmt-btn-color-skincolor" href="#">LOCATE US ON MAP</a>
+                    </div>
+                </div><!-- featured-icon-box end-->
+            </div>
+            <div class="col-md-4">
+                <!--featured-icon-box-->
+                <div class="featured-icon-box border icon-align-top-content style5">
+                    <div class="featured-content">
+                        <div class="featured-title">
+                            <h5>Visit Bitween</h5>
+                        </div>
+                        <div class="featured-desc">
+                            <p>Business Hours For Only Office</p>
+                        </div>
+                    </div>
+                    <div class="featured-content-inner cmt-bgcolor-grey">
+                        <div class="featured-icon">
+                            <div class="cmt-icon cmt-icon_element-onlytxt cmt-icon_element-color-skincolor cmt-icon_element-size-md">
+                               <i class="fas fa-car"></i>
+                            </div>
+                        </div>
+                        <p>{{contactAddress.office_time}} <br>{{contactAddress.holiday}}</p>
+                        <a class="cmt-btn cmt-btn-size-md btn-inline cmt-btn-color-skincolor" href="#">MAKE AN APPOINMENT</a>
+                    </div>
+                </div><!-- featured-icon-box end-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--google_map-->
+<div id="google_map" class="google_map">
+    <div class="map_container">
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.6509029266495!2d90.41625197533627!3d23.75982517866396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b995a1ddd911%3A0x600d7141890fce6a!2sShiftingbd.com!5e0!3m2!1sen!2sbd!4v1699079547324!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+
+
+</div><!--site-main end-->
+
+
+
+{% endblock %}

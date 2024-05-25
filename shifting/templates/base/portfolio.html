@@ -1,0 +1,72 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Portfolio {% endblock title %}
+
+{% block content %}
+
+<!-- page-title -->
+<div class="cmt-page-title-row port-p">
+    <div class="cmt-page-title-row-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Portfolio</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="{% url 'home' %}">Home</a>
+                        </span>
+                        <span>Portfolio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+<!-- page-title end-->
+
+
+<!--site-main start-->
+<div class="site-main">
+
+<section class="cmt-row grid-section clearfix">
+    <div class="container">
+        <div class="row multi-columns-row cmt-boxes-spacing-15px">
+            {% for portobj in portobj %}
+            <div class="cmt-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                <!-- featured-imagebox -->
+                <div class="featured-imagebox featured-imagebox-portfolio cmt-portfolio-box-view1">
+                    <!-- cmt-box-view-overlay -->
+                    <div class="cmt-box-view-overlay cmt-portfolio-box-view-overlay">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <a href="#"> <img class="img-fluid" src="{{ portobj.image.url }}" alt="image"></a>
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-iconbox cmt-media-link">
+                            <a class="ttm_prettyphoto ttm_image" title="Fitness Guidance to Patient" data-rel="prettyPhoto" href="{{ portobj.image.url }}">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                            <a href="#" class="ttm_link"><i class="fas fa-link"></i></a>
+                        </div>
+                        <div class="cmt-box-view-content-inner">
+                            <div class="featured-content featured-content-portfolio">
+                                <div class="featured-title">
+                                    <h5><a href="#">{{ portobj.title }}</a></h5>
+                                </div>
+                                <span class="category">{{ portobj.category }}</span>
+                            </div>
+                        </div>
+                    </div><!-- cmt-box-view-overlay end-->
+                </div><!-- featured-imagebox -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+</div><!--site-main end-->
+
+
+{% endblock %}

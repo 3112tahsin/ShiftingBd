@@ -1,0 +1,460 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Shifting Service {% endblock title %}
+
+{% block content %}
+ <!-- page-title -->
+ <div class="cmt-page-title-row">
+    <div class="cmt-page-title-row-inner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+            <div class="page-title-heading">
+              <h2 class="title">Shifting</h2>
+            </div>
+            <div class="breadcrumb-wrapper">
+              <span>
+                <a title="Homepage" href="{% url 'home' %}">Home</a>
+              </span>
+              <span>Shifting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- page-title end-->
+
+  <!--site-main start-->
+  <section class="cmt-row bg-layer-equal-height clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div> 
+            {% if messages %}
+                 {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                         {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+          <div class="shift-service pb-30">
+            <div class="section-title">
+              <h5>SHIFTING SERVICES</h5>
+              <h2>Shifting Services</h2>
+            </div>
+            {% for House in House %}
+             <p>{{ House.top_details }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for House in House %}
+        <div class="col-md-4">
+                 <div class="content">
+                  <a href="#" target="_blank">
+                  <div class="content-overlay"></div>
+                  <img class="content-image" src="{{ House.image.url }}" alt="">
+                  <div class="content-details fadeIn-bottom">
+                      <h3 class="content-title">{{ House.title }}</h3>
+                      <p class="content-text">This is a short description</p>
+                  </div>
+                  </a>
+              </div>
+              <div class="serve-home pt-20">
+               <h4><a href="#"> {{ House.title }}</a></h4>
+                  <p>{{ House.descriptions }}</p>
+             </div>
+             <div class="sif-bt">
+              <a href="#houseshiftingModal" data-toggle="modal" data-target="#houseshiftingModal">Booking Details</a>
+             </div>
+          </div>
+          {% endfor %}
+          {% for Office in Office %}
+         <div class="col-md-4">
+                 <div class="content">
+                  <a href="#" target="_blank">
+                  <div class="content-overlay"></div>
+                  <img class="content-image" src="{{ Office.image.url }}" alt="">
+                  <div class="content-details fadeIn-bottom">
+                      <h3 class="content-title">{{ Office.title }}</h3>
+                      <p class="content-text">This is a short description</p>
+                  </div>
+                  </a>
+              </div>
+              <div class="serve-home pt-20">
+               <h4><a href="#">{{ Office.title }}</a></h4>
+                  <p> {{ Office.descriptions }} </p>
+             </div>
+             <div class="sif-bt">
+              <a href="#officeshiftingModal" data-toggle="modal" data-target="#officeshiftingModal">Booking Details</a>
+             </div>
+          </div>
+          {% endfor %}
+          {% for Commercial in commerCial %}
+          <div class="col-md-4">
+                 <div class="content">
+                  <a href="#" target="_blank">
+                  <div class="content-overlay"></div>
+                  <img class="content-image" src="{{ Commercial.image.url }}" alt="">
+                  <div class="content-details fadeIn-bottom">
+                      <h3 class="content-title">{{ Commercial.title }}</h3>
+                      <p class="content-text">This is a short description</p>
+                  </div>
+                  </a>
+              </div>
+              <div class="serve-home pt-20">
+               <h4><a href="#">Commercial Shifting</a></h4>
+                  <p> {{Commercial.descriptions}} </p>
+             </div>
+             <div class="sif-bt">
+              <a href="#commercialshiftingModal" data-toggle="modal" data-target="#commercialshiftingModal">Booking Details</a>
+             </div>
+          </div>
+          {% endfor %}
+        
+      
+      </div>
+    </div>
+  </section>
+    <section class="pp-table">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="shifting-price-list">
+              <table class="table">
+                <h4>House Shifting, Office Shifting, Commercial Shifting (Transport Cost)</h4>
+                  <thead  class="bg-top-pricett">
+                    <tr class="text-white">
+                        <th scope="col">Items Name</th>
+                        <th scope="col">Inside Dhaka</th>
+                        <th scope="col">Outside Dhaka</th>
+                        <th scope="col">Rate for Per k.m</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for shiftingCost in shiftingCost %}
+                        <tr class="color-ro1">
+                          <th scope="row" class="th">{{ shiftingCost.item_name }}</th>
+                          <td>{{ shiftingCost.inside_dhaka }} Tk </td>
+                          <td>{{ shiftingCost.outside_dhaka }}  Tk</td>
+                          <td>{{ shiftingCost.per_km_cost }} Tk </td>
+                        </tr>
+                      {% endfor %} 
+                  </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <table class="table">
+              <h4>Others Services</h4>
+                <thead  class="bg-top-pricett">
+                  <tr class="text-white">
+                    <th scope="col">Service Type</th>
+                    <th scope="col">Inside Dhaka</th>
+                    <th scope="col">Outside Dhaka</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for OtherCost in OtherCost %}
+                  <tr class="color-ro1">
+                    <th scope="row" class="th">{{ OtherCost.item_name }}</th>
+                    <td>{{ OtherCost.inside_dhaka }} Tk</td>
+                    <td>{{ OtherCost.outside_dhaka }} Tk</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!--site-main end-->
+<hr>
+  <!-- --------Shifting Service Details start--------- -->
+
+  <section class="py-5">
+    <div class="container">
+        {% for shiftingHouse in shiftingHouse %}
+        <div class="row">
+        <div class="col-md-6">
+            <div class="house-items pb-40">
+            <div class="section-title">
+                    <h5>{{ shiftingHouse.title }}</h5>
+                    <h3>{{ shiftingHouse.title }}</h3>
+                </div>
+            <h4>{{ shiftingHouse.sub_title }}</h4>
+            <p>{{ shiftingHouse.top_descriptions }}</p>
+            <p>{{ shiftingHouse.descriptions }}</p>
+            <p>{{ shiftingHouse.descriptions2 }}</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="house-items-img pb-40">
+            <img class="w-100" src="{{ shiftingHouse.site_image.url }}" alt="">
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+  </section>
+
+  <!-- --------Shifting Service Details End----------- -->
+
+
+   <!------------- House Shifting Booking popup Start ------------------>
+   <div class="container">
+    <div class="modal fade" id="houseshiftingModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content technician">
+          <div class="modal-header">
+            <h5 class="modal-title">Submit the form to contact us</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="booking-from" role="form" method="post" action="#">
+              {% csrf_token %}
+              <label for="lName">Your Name<span class="star" style="color: red">*</span></label>
+              <input type="text" name="name" class="form-control" id="lName" required />
+              <label for="number">Mobile <span class="star" style="color: red">*</span></label>
+              <input type="text" name="mobile_number" class="form-control" id="number" required />
+
+              <div class="items-all d-flex">
+                <div class="item-2">
+                  <label for="lName">ACs/Ton Items</label>
+                  <input type="text" name="acs_ton_items" class="form-control itm" id="lName"/>
+                </div>
+                <div class="item-2">
+                  <label for="lName">Furniture Items</label>
+                  <input type="text" name="furniture_items" class="form-control itm" id="lName"/>
+                </div>
+              </div>
+              <div class="items-all d-flex">
+                <div class="item-2">
+                  <label for="lName">Glass Items</label>
+                  <input type="text" name="glass_items" class="form-control itm" id="lName"/>
+                </div>
+                <div class="item-2">
+                  <label for="lName">Melamine Items</label>
+                  <input type="text" name="melamine_items" class="form-control itm" id="lName"/>
+                </div>
+              </div>
+              <div class="items-all d-flex">
+                <div class="item-2">
+                  <label for="lName">Mattress Items</label>
+                  <input type="text" name="mattress_items" class="form-control itm" id="lName"/>
+                </div>
+                <div class="item-2">
+                  <label for="lName">Others Items</label>
+                  <input type="text" name="others_items" class="form-control itm" id="lName"/>
+                </div>
+              </div>
+              <div class="form-group pt-1">
+                <label for="comment">Address<span class="star" style="color: red">*</span></label >
+                <textarea class="text-input" name="address" rows="2" id="comment" required></textarea>
+              </div>
+
+              <div class="time-date d-flex">
+               <div class="boo">
+                 <label for="datetimepicker11">Booking Date & Time</label>
+              <input
+                type="datetime-local"
+                id="meeting-time"
+                name="booking_date_time"
+                value="2020-01-30T19:30"
+                min="2018-06-07T00:00"
+                max="2031-06-14T00:00"/>
+               </div>
+               <div class="boo">
+                 <label for="datetimepicker11">Shifting Date & Time</label>
+              <input
+                type="datetime-local"
+                id="meeting-time"
+                name="shifting_date_time"
+                value="2020-01-30T19:30"
+                min="2018-06-07T00:00"
+                max="2031-06-14T00:00"/>
+               </div>
+              </div>
+
+              <div class="form-group pt-1">
+                <label for="comment">Booking Details</label>
+                <textarea class="text-input" name="booking_details" rows="3" id="comment"></textarea>
+              </div>
+              <button
+                type="submit"
+                id="submit" name="submit"
+                class="btnsubmit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor w-100">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-------------House Shifting Booking popup End ------------------>
+
+  <!------------- Office Shifting Booking popup Start ------------------>
+  <div class="container">
+    <div class="modal fade" id="officeshiftingModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content technician">
+          <div class="modal-header">
+            <h5 class="modal-title">Submit the form to contact us</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="booking-from" role="form" method="post" action="#">
+              {% csrf_token %}
+              <label for="lName">Your Office Name<span class="star" style="color: red">*</span></label>
+              <input type="text" name="name" class="form-control" id="lName" required />
+              <label for="number">Mobile Number <span class="star" style="color: red">*</span></label>
+              <input type="text" name="mobile_number" class="form-control" id="number" required />
+
+              <div class="items-all d-flex">
+                <div class="item-2">
+                  <label for="lName">ACs/Ton Items</label>
+                  <input type="text" name="acs_ton_items" class="form-control itm" id="lName"/>
+                </div>
+                <div class="item-2">
+                  <label for="lName">Chair & Tables Items</label>
+                  <input type="text" name="chair_tables_items" class="form-control itm" id="lName"/>
+                </div>
+              </div>
+              <div class="items-all d-flex">
+                <div class="item-2">
+                  <label for="lName">Computer Items</label>
+                  <input type="text" name="computer_items" class="form-control itm" id="lName"/>
+                </div>
+                <div class="item-2">
+                  <label for="lName">Monitor Items</label>
+                  <input type="text" name="monitor_items" class="form-control itm" id="lName"/>
+                </div>
+              </div>
+              <div class="items-all d-flex">
+                <div class="item-2">
+                  <label for="lName">Glass Items</label>
+                  <input type="text" name="glass_items" class="form-control itm" id="lName"/>
+                </div>
+                <div class="item-2">
+                  <label for="lName">Others Items</label>
+                  <input type="text" name="others_items" class="form-control itm" id="lName"/>
+                </div>
+              </div>
+              <div class="form-group pt-1">
+                <label for="comment">Address<span class="star" style="color: red">*</span></label >
+                <textarea class="text-input" name="address" rows="2" id="comment" required></textarea>
+              </div>
+
+              <div class="time-date d-flex">
+               <div class="boo">
+                 <label for="datetimepicker11">Booking Date & Time</label>
+              <input
+                type="datetime-local"
+                id="meeting-time"
+                name="booking_date_time"
+                value="2020-01-30T19:30"
+                min="2018-06-07T00:00"
+                max="2031-06-14T00:00"/>
+               </div>
+               <div class="boo">
+                 <label for="datetimepicker11">Shifting Date & Time</label>
+              <input
+                type="datetime-local"
+                id="meeting-time"
+                name="shifting_date_time"
+                value="2020-01-30T19:30"
+                min="2018-06-07T00:00"
+                max="2031-06-14T00:00"/>
+               </div>
+              </div>
+
+              <div class="form-group pt-1">
+                <label for="comment">Booking Details</label>
+                <textarea class="text-input" name="booking_details" rows="3" id="comment"></textarea>
+              </div>
+              <button
+                type="submit"
+                id="submit" name="submit"
+                class="btnsubmit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor w-100">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-------------Office Shifting Booking popup End ------------------>
+  <!------------- Commercial Shifting Booking popup Start ------------------>
+  <div class="container">
+    <div class="modal fade" id="commercialshiftingModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content technician">
+          <div class="modal-header">
+            <h5 class="modal-title">Submit the form to contact us</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="booking-from" role="form" method="post" action="#">
+              {% csrf_token %}
+              <label for="lName">Your Commercial Name<span class="star" style="color: red">*</span></label>
+              <input type="text" name="name" class="form-control" id="lName" required />
+              <label for="number">Mobile Number <span class="star" style="color: red">*</span></label>
+              <input type="text" name="mobile_number" class="form-control" id="number" required />
+
+              <div class="form-group pt-1">
+                <label for="comment">Commercial Details<span class="star" style="color: red">*</span></label >
+                <textarea class="text-input" name="commercial_details" rows="4" id="comment" required></textarea>
+              </div>
+             
+              <div class="form-group pt-1">
+                <label for="comment">Address<span class="star" style="color: red">*</span></label >
+                <textarea class="text-input" name="address" rows="2" id="comment" required></textarea>
+              </div>
+
+              <div class="time-date d-flex">
+               <div class="boo">
+                 <label for="datetimepicker11">Booking Date & Time</label>
+              <input
+                type="datetime-local"
+                id="meeting-time"
+                name="booking_date_time"
+                value="2020-01-30T19:30"
+                min="2018-06-07T00:00"
+                max="2031-06-14T00:00"/>
+               </div>
+               <div class="boo">
+                 <label for="datetimepicker11">Shifting Date & Time</label>
+              <input
+                type="datetime-local"
+                id="meeting-time"
+                name="shifting_date_time"
+                value="2020-01-30T19:30"
+                min="2018-06-07T00:00"
+                max="2031-06-14T00:00"/>
+               </div>
+              </div>
+
+              <div class="form-group pt-1">
+                <label for="comment">Booking Details</label>
+                <textarea class="text-input" name="booking_details" rows="3" id="comment"></textarea>
+              </div>
+              <button
+                type="submit"
+                id="submit" name="submit"
+                class="btnsubmit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor w-100">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-------------Commercial Shifting Booking popup End ------------------>
+{% endblock %}

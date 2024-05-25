@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Testimonial {% endblock title %}
+
+{% block content %}
+
+<!-- page-title -->
+<div class="cmt-page-title-row test-p">
+    <div class="cmt-page-title-row-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Testimonial</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="{% url 'home' %}">Home</a>
+                        </span>
+                        <span>Testimonial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div><!-- page-title end-->
+
+
+<!--site-main start-->
+<div class="site-main">
+
+<!--testimonial-section-->
+<section class="testimonial text-center cmt-bgcolor-skincolor bg-img3 cmt-bg cmt-bgimage-yes" style="background-image: url(images/bg-image/row-bgimage-3.jpg);">
+    <div class="cmt-row-wrapper-bg-layer cmt-bg-layer"></div>
+    <div class="container">
+        <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+            <div class="carousel-inner" role="listbox">
+                {% for testimonial in testiMonials %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="testimonial4_slide">
+                            <img src="{{testimonial.picture.url}}" class="img-circle img-responsive" />
+                            <div class="testimonial-name-tt">
+                                <h5>{{ testimonial.name }}</h5>
+                                <label>{{ testimonial.designation }}</label>
+                            </div>
+                            <p>{{ testimonial.message }}</p>
+                            <h4>Client {{ testimonial.id }} </h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+</section>
+<!--testimonial-section end-->
+</div><!--site-main end-->
+
+
+{% endblock %}

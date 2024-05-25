@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Team {% endblock title %}
+
+{% block content %}
+
+<!-- page-title -->
+<div class="cmt-page-title-row team-p">
+    <div class="cmt-page-title-row-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Team Grid</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="{% url 'home' %}">Home</a>
+                        </span>
+                        <span>Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+<!-- page-title end-->
+
+
+<!--site-main start-->
+<div class="site-main">
+
+
+<!--grid-section-->
+<section class="cmt-row grid-section clearfix">
+    <div class="container">
+        <div class="row multi-columns-row cmt-boxes-spacing-15px">
+            {% for teamMembers in teamMembers %}
+            <div class="cmt-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                <!-- featured-imagebox-teama -->
+                <div class="featured-imagebox featured-imagebox-team style1">
+                    <div class="cmt-box-view-overlay cmt-team-box-view-overlay">
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="{{ teamMembers.picture.url }}" alt="image"> 
+                        </div>
+                    </div>
+                    <div class="featured-content featured-content-team">
+                        <div class="cmt-media-link">
+                            <div class="media-block">
+                                <ul class="social-icons">
+                                    <li class="social-twitter"><a href="{{ teamMembers.twitter_link }}"><i class="fab fa-twitter"></i></a></li>
+                                    <li class="social-facebook"><a href="{{ teamMembers.facebook_link }}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li class="social-instagram"><a href="{{ teamMembers.instagram_link }}"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="team-sep-icon cmt-textcolor-darkgrey"><i class="far fa-user"></i></div>
+                        <div class="featured-title">
+                            <h5><a href="#">{{ teamMembers.name }}</a></h5>
+                        </div>
+                        <div class="team-position">{{ teamMembers.designation }}</div>
+                    </div>
+                </div><!-- featured-imagebox-team end-->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--grid-section end-->
+
+
+</div><!--site-main end-->
+
+{% endblock %}

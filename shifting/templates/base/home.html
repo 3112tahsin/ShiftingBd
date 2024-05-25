@@ -1,0 +1,524 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Home {% endblock title %}
+
+{% block content %}
+
+  <!-- START homemainclassicslider REVOLUTION SLIDER 6.1.0 -->
+  <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery" style="background:transparent;padding:0;">
+    <rs-module id="rev_slider_1_1" class="rs-respect-topbar" style="display:none;" data-version="6.1.6">
+
+        <rs-slides>
+            {% for homeSlider in homeSlider %}
+
+            <rs-slide data-key="rs-1" data-title="Slide" data-anim="ei:d;eo:d;s:1500;r:0;t:slideoverhorizontal;sl:0;" data-firstanim="t:fade;s:2000;sl:0;">
+
+                <img src="{{ homeSlider.image.url }}" title="mainslider-bg-001" width="1920" height="705" class="rev-slidebg" data-no-retina />
+
+                <!-- {% for VideoObj in VideoObj %}
+                <div class="slide">
+                    <div class="video-top">
+                    <video width="260" height="220" autoplay controls muted>
+                    <source src="{{ VideoObj.video_url.url }}" type="video/mp4">
+                    <source src="{{ VideoObj.video_url.url }}" type="video/ogg">
+                    Your browser does not support the video tag.
+                    </video>
+                   </div>
+                </div>
+                {% endfor %} -->
+
+                <div class="link-cc">
+                    <a href="{% url 'contact' %}">Contact Now</a>
+                </div>
+
+            </rs-slide>
+
+            {% endfor %}
+        </rs-slides>
+
+        <rs-progress class="rs-bottom" style="visibility: hidden !important;"></rs-progress>
+    </rs-module>
+</rs-module-wrap>
+<!-- END REVOLUTION SLIDER -->
+<!-- Track Product -->
+<section class="track-product">
+<div class="theme-container container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 track-prod clrbg-before wow slideInUp" data-wow-offset="50" data-wow-delay=".20s">
+            <h2 class="title-1"> track your product </h2> <span class="font2-light fs-12">Now you can track your product easily</span>
+            <div class="row">
+                <form class="action">
+                    <div class="track-ppr">
+                        <div class="col-md-7 col-sm-7">
+                        <div class="form-group">
+                            <input type="text" placeholder="Enter your product ID" required="" class="form-control box-shadow">
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <div class="form-group">
+                            <button class="btn-1">Track your product</button>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- /.Track Product -->
+
+<!--site-main start-->
+<div class="site-main">
+
+
+<!--introduction-section-->
+<section class="cmt-row introduction-section clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cmt-bgcolor-grey text-justify pt-40 pl-40 pr-40 pb-40">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 mx-auto">
+                            {% for aboutUs in aboutUs %}
+                            <!-- ttm_single_image-wrapper -->
+                            <div class="ttm_single_image-wrapper">
+                                <img class="img-fluid" src="{{ aboutUs.image.url }}" alt="">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="cmt-bgcolor-grey text-justify pt-15 pl-40 ml_60 res-991-ml-0 res-991-pl-0 res-991-pt-30">
+                                {% for aboutUs in aboutUs %}
+                                <!-- section title -->
+                                <div class="section-title">
+                                    <h5>ABOUT SHIFTING BD</h5>
+                                    <h2 class="title">{{ aboutUs.about_title }}</h2>
+                                </div><!-- section title end -->
+                                <p>{{ aboutUs.about_details }}</p>
+                                {% endfor %}
+                                <div class="mt-15 mb-30">
+                                    <ul class="cmt-list cmt-list-style-icon cmt-list-icon-color-skincolor">
+                                        <li><i class="fas fa-check"></i><div class="cmt-list-li-content">Every Project is Run by a Team of Experts tempor incididunt.</div></li>
+                                        <li><i class="fas fa-check"></i><div class="cmt-list-li-content">We Save Your Time, Money, and Space your modern home.</div></li>
+                                        <li><i class="fas fa-check"></i><div class="cmt-list-li-content">Water features, streams and ponds in your garden.</div></li>
+                                    </ul>
+                                </div>
+                                <div class="cmt-bgcolor-white box-shadow-2 pt-25 pl-25 pr-25 pb-25">
+                                    <div class="row cmt-vertical_sep">
+                                        {% for aboutBottom in aboutBottom %}
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <!-- cmt-fid -->
+                                            <div class="cmt-fid inside text-center">
+                                                <div class="cmt-fid-contents">
+                                                    <h4 class="cmt-fid-inner">
+                                                        <span   data-appear-animation="animateDigits" 
+                                                                data-from="0" 
+                                                                data-to="{{ aboutBottom.values }}" 
+                                                                data-interval="15" 
+                                                                data-before="" 
+                                                                data-before-style="sup" 
+                                                                data-after="" 
+                                                                data-after-style="sub" 
+                                                                class="numinate">{{ aboutBottom.values }}
+                                                        </span><sub>+</sub>
+                                                    </h4>
+                                                    <h3 class="cmt-fid-title">{{ aboutBottom.titles }}</h3>
+                                                </div>
+                                            </div><!-- cmt-fid end -->
+                                        </div>
+                                        {% endfor %}
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- row end -->
+    </div>
+</section>
+<!--introduction-section-->
+
+
+<!--features-section-->
+<section class="cmt-row features-section bg-img1 clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-7 m-auto">
+                <!-- section title -->
+                <div class="section-title title-style-center_text">
+                    <div class="title-header">
+                        <h5>ABOUT SHIFTING BD</h5>
+                        <h2 class="title">Our Services</h2>
+                    </div>
+                    <div class="heading-seperator"><span></span></div>
+                </div><!-- section title end -->
+            </div>
+        </div>
+        <div class="row">
+            {% for ourServices in ourServices %}
+            <div class="col-md-4">
+                <div class="content">
+                    <a href="#" target="_blank">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="{{ourServices.image.url}}" alt="">
+                    <div class="content-details fadeIn-bottom">
+                        <h3 class="content-title">{{ourServices.title}}</h3>
+                        <p class="content-text">This is a short description</p>
+                    </div>
+                    </a>
+                </div>
+                <div class="serve-home pt-20">
+                <h4><a href="#">{{ourServices.title}}</a></h4>
+                <p>{{ourServices.descriptions}}</p>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- row end -->
+        <!-- slick_slider -->
+       <!-- row end -->
+    </div>    
+
+</section>
+<!--features-section-->
+
+
+
+
+
+<section class="cmt-row blog-title-section clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-7 m-auto">
+                <!-- section title -->
+                <div class="section-title text-left">
+                    <div class="title-header">
+                        <h5>WHY CHOOSE US</h5>
+                        <h3 class="title">Because we care about your safety</h3>
+                    </div>
+                    <div class="heading-seperator"><span></span></div>
+                </div><!-- section title end -->
+            </div>
+        </div><!-- row end -->
+        <div class="row">
+            <div class="col-md-5">
+                <div class="why-ser d-flex pt-50">
+                    <div class="ser-hr d-flex">
+                        <i class="fas fa-person-booth"></i>
+                        <h5>Ensuring Masks</h5>
+                    </div>
+                    <div class="ser-hr d-flex pl-50">
+                        <i class="fas fa-phone-alt"></i>
+                        <h5>24/7 Support</h5>
+                    </div>
+                </div>
+                <div class="why-ser d-flex pt-30">
+                    <div class="ser-hr d-flex">
+                       <i class="fas fa-pump-soap"></i>
+                        <h5>Sanitising Hands & Equipment</h5>
+                    </div>
+                    <div class="ser-hr d-flex">
+                       <i class="fas fa-hands-wash"></i>
+                        <h5>Ensuring Gloves</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <img class="w-100" src="{% static 'images/bg-image/Safety.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--portfolio-section-->
+<section class="cmt-row portfolio-section clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-7 m-auto">
+                <!-- section title -->
+                <div class="section-title title-style-center_text">
+                    <div class="title-header">
+                        <h5>ABOUT SHIFTING BD</h5>
+                        <h2 class="title">The All Services Portfolio</h2>
+                    </div>
+                    <div class="heading-seperator"><span></span></div>
+                </div><!-- section title end -->
+            </div>
+        </div><!-- row end -->
+    </div>
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cmt-tabs tabs-style-01">
+                    <ul class="tabs d-md-flex portfolio-filter">
+                        <li class="tab active"><a href="#" data-filter="*">All</a></li>
+                        {% for category in categories %}
+                            <li class="tab"><a href="#" data-filter=".{{ category.category_title|lower }}">{{ category.category_title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <div class="content-tab">
+                        <!-- content-inner -->
+                        <div class="row multi-columns-row cmt-boxes-spacing-10px isotope-project">
+                            {% for item in portobj %}
+                                <div class="cmt-box-col-wrapper col-lg-2 col-md-4 col-sm-6 {{ item.category_title.category_title|lower }}">
+                                    <!-- featured-imagebox -->
+                                    <div class="featured-imagebox featured-imagebox-portfolio cmt-portfolio-box-view1">
+                                        <!-- cmt-box-view-overlay -->
+                                        <div class="cmt-box-view-overlay cmt-portfolio-box-view-overlay">
+                                            <!-- featured-thumbnail -->
+                                            <div class="featured-thumbnail">
+                                                <a href="#"> <img class="img-fluid" src="{{ item.image.url }}" alt="image"></a>
+                                            </div><!-- featured-thumbnail end-->
+                                            <div class="featured-iconbox cmt-media-link">
+                                                <a class="ttm_prettyphoto ttm_image" title="{{ item.title }}" data-rel="prettyPhoto" href="{{ item.image.url }}">
+                                                    <i class="fa fa-expand"></i>
+                                                </a>
+                                                <a href="portfolio-single.html" class="ttm_link"><i class="fas fa-link"></i></a>
+                                            </div>
+                                            <div class="featured-content featured-content-portfolio">
+                                                <div class="featured-title">
+                                                    <div class="d-flex align-items-center justify-content-bitween">
+                                                        <h5><a href="portfolio-single.html">{{ item.title }}</a></h5>
+                                                        <a href="portfolio-single.html" class="ttm_link"><i class="ti ti-link"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- cmt-box-view-overlay end-->
+                                    </div><!-- featured-imagebox -->
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- row end -->
+    </div>
+    <div class="pt-35 pb-20 text-center cmt-bgcolor-darkgrey">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h5 class="font-weight-normal">At our AutoService Garage, We Fully Apprec Teb How Difficult.</h5>
+                    <div class="top-angle mb_20"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--portfolio-section-->
+
+
+
+<!--testimonial-section-->
+<section class="testimonial text-center cmt-bgcolor-skincolor bg-img3 cmt-bg cmt-bgimage-yes" style="background-image: url(images/bg-image/row-bgimage-3.jpg);">
+    <div class="cmt-row-wrapper-bg-layer cmt-bg-layer"></div>
+    <div class="container">
+        <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+            <div class="carousel-inner" role="listbox">
+                {% for testimonial in testiMonials %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="testimonial4_slide">
+                            <img src="{{testimonial.picture.url}}" class="img-circle img-responsive" />
+                            <div class="testimonial-name-tt">
+                                <h5>{{ testimonial.name }}</h5>
+                                <label>{{ testimonial.designation }}</label>
+                            </div>
+                            <p>{{ testimonial.message }}</p>
+                            <h4>Client {{ testimonial.id }} </h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+</section>
+<!--testimonial-section end-->
+<section class="cmt-row introduction-section clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cmt-bgcolor-grey pt-40 pl-40 pr-40 pb-40">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 mx-auto">
+                            <!-- ttm_single_image-wrapper -->
+                            <div class="ttm_single_image-wrapper">
+                                <img class="img-fluid" src="{% static 'images/bg-image/MobileScreen.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="cmt-bgcolor-grey text-left pt-15 pl-40 ml_60 res-991-ml-0 res-991-pl-0 res-991-pt-30">
+                                <!-- section title -->
+                                <div class="section-title">
+                                    <h5>DOWNLOAD OUR APP</h5>
+                                    <h3 class="title">Any Service, Any Time, Anywhere.</h3>
+                                </div><!-- section title end -->
+                                <p>Give us your mobile number. You’ll get an SMS with the app download link.</p>
+                                <div class="ttm_subscribe_form">
+                                    <input type="email" name="email" placeholder="Type Your Mobile Number...." required="">
+                                    <button class="btn cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor" type="submit">go</button>
+                                </div>
+                            </div>
+                            <div class="app-img d-flex pt-50">
+                               <div class="app-1">
+                                 <img src="{% static 'images/bg-image/app-store.png' %}" alt="">
+                               </div>
+                               <div class="app-2">
+                                 <img src="{% static 'images/bg-image/play-store.png' %}" alt="">
+                            </div>
+                               </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- row end -->
+    </div>
+</section>
+
+<!--team-section-->
+<section class="cmt-row team-section clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- section title -->
+                <div class="section-title">
+                    <div class="title-header">
+                        <h5>ABOUT SHIFTING BD</h5>
+                        <h2 class="title">Meet Our Team Members</h2>
+                    </div>
+                    <div class="heading-seperator"><span></span></div>
+                </div><!-- section title end -->
+            </div>
+        </div><!-- row end -->
+        <!-- row -->
+        <div class="row slick_slider slick-arrows-style2" data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":true, "autoplay":true, "infinite":true, "responsive": [{"breakpoint":991,"settings":{"slidesToShow": 3}}, {"breakpoint":678,"settings":{"slidesToShow": 2}}, {"breakpoint":460,"settings":{"slidesToShow": 1}}]}'>
+            {% for teamMembers in teamMembers %}
+            <div class="cmt-box-col-wrapper col-lg-4">
+                <!-- featured-imagebox-team -->
+                <div class="featured-imagebox featured-imagebox-team style1">
+                    <div class="cmt-box-view-overlay cmt-team-box-view-overlay">
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="{{ teamMembers.picture.url }}" alt="image"> 
+                        </div>
+                    </div>
+                    <div class="featured-content featured-content-team">
+                        <div class="team-sep-icon cmt-textcolor-darkgrey"><i class="far fa-user"></i></div>
+                        <div class="featured-title">
+                            <h5><a href="#">{{ teamMembers.name }}</a></h5>
+                        </div>
+                        <div class="team-position">{{ teamMembers.designation }}</div>
+                        <div class="cmt-media-link">
+                            <div class="media-block">
+                                <ul class="social-icons">
+                                    <li class="social-twitter"><a href="{{ teamMembers.twitter_link }}"><i class="fab fa-twitter"></i></a></li>
+                                    <li class="social-facebook"><a href="{{ teamMembers.facebook_link }}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li class="social-instagram"><a href="{{ teamMembers.instagram_link }}"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox-team end-->
+            </div>
+            {% endfor %}
+        </div><!-- row end -->
+    </div>
+</section>
+<!--team-section end-->
+
+<!--cta_form-section-->
+<section class="cmt-row cta_form-section bg-layer-equal-height bg-img4 bg-layer clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row no-gutters">
+            <div class="col-lg-6 col-md-12 ml-auto">
+                <div class="cmt-col-bgcolor-yes cmt-bgcolor-darkgrey cmt-col-bgimage-yes col-bg-img-six cmt-bg cmt-right-span spacing-1">
+                    <div class="cmt-col-wrapper-bg-layer cmt-bg-layer">
+                        <div class="cmt-col-wrapper-bg-layer-inner"></div>
+                    </div>
+                    <div class="layer-content">
+                        <div>
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                       </div>
+                        <!-- section-title -->
+                        <div class="section-title">
+                            <div class="title-header">
+                                <h5>READY TO HELP</h5>
+                                <h2 class="title">Get a Free Quote Today.</h2>
+                            </div>
+                        </div><!-- section-title end -->
+                        <form id="cmt-contactform-1" class="contact__form cmt-contactform-1 wrap-form clearfix" method="POST" action="#">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>
+                                        <span class="text-input"><input name="name" type="text" value="" placeholder="Your Name" required="required"></span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>
+                                        <span class="text-input"><input name="email" type="text" value="" placeholder="Your Email" required="required"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>
+                                        <span class="text-input"><input name="phone" type="text" value="" placeholder="Phone Number" required="required"></span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>
+                                        <span class="text-input"><input name="subject" type="text" value="" placeholder="Subject" required="required"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <label>
+                                <span class="text-input"><textarea name="messages" rows="3" placeholder="Message" required="required"></textarea></span>
+                            </label>
+                            <button class="submit cmt-btn cmt-btn-size-md cmt-btn-shape-rounded cmt-btn-style-fill cmt-btn-color-skincolor" type="submit">Get An Appointment!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- row end -->
+    </div>
+</section>
+<!--cta_form-section end-->
+
+
+<!--blog-title-section-->
+<section class="cmt-row blog-title-section cmt-bgcolor-grey clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+        </div><!-- row end -->
+    </div>
+</section>
+<!--blog-title-section-->
+
+
+</div><!--site-main end-->
+
+
+
+{% endblock %}

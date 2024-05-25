@@ -1,0 +1,184 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Security Service {% endblock title %}
+
+{% block content %}
+      <!-- page-title -->
+      <div class="cmt-page-title-row">
+        <div class="cmt-page-title-row-inner">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-12">
+                <div class="page-title-heading">
+                  <h2 class="title">Security</h2>
+                </div>
+                <div class="breadcrumb-wrapper">
+                  <span>
+                    <a title="Homepage" href="{% url 'home' %}">Home</a>
+                  </span>
+                  <span>Security</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- page-title end-->
+
+       <!--site-main start-->
+      <section class="cmt-row bg-layer-equal-height clearfix">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div> 
+                  {% if messages %}
+                       {% for message in messages %}
+                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                               {{ message }}
+                          </div>
+                      {% endfor %}
+                  {% endif %}
+              </div>
+                <div class="shift-service pb-30">
+                  <!-- section title -->
+               <div class="section-title">
+                    <h5>SECURITY TYPES</h5>
+                    <h2>Security Types</h2>
+                </div><!-- section title end -->
+                  <p>Shiftingbd provides a comprehensive range of security types to ensure the utmost protection for your assets.Our comprehensive approach to security ensures that your information is safeguarded around the clock, providing you with peace of mind and confidence in our services.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                {% for securObj in securObj %}
+              <div class="col-md-5 pl-100 ml-30">
+                <div class="content">
+                        <a href="#">
+                        <div class="content-overlay"></div>
+                        <img class="content-image" src="{{securObj.top_image.url}}" alt="">
+                        <div class="content-details fadeIn-bottom">
+                            <h3 class="content-title">{{securObj.title}}</h3>
+                            <p class="content-text">This is a short description</p>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="serve-home pt-20">
+                     <h4><a href="#">{{securObj.title}}</a></h4>
+                        <p>{{securObj.top_descriptions}}</p>
+                   </div>
+                   <div class="sif-bt pb-50">
+                    <a href="#securityModal" data-toggle="modal" data-target="#securityModal">Booking Details</a>
+                   </div>
+              </div>
+              {% endfor %}
+            </div>
+            
+          </div>
+        </section>
+      <!--site-main end-->
+
+<hr>
+      <!-- --------Security Service Details start--------- -->
+
+      <section class="py-5">
+        <div class="container">
+        {% for securObj in securObj %}
+         <div class="row">
+           <div class="col-md-6">
+            <div class="house-items">
+              <h3>{{securObj.title}}</h3>
+              <h6>{{securObj.sub_title}}</h6>
+              <p>{{securObj.top_descriptions}}</p>
+              <p>{{securObj.descriptions1}}</p>
+              <p>{{securObj.descriptions2}}</p>
+            </div>
+           </div>
+          <div class="col-md-6">
+            <div class="house-items-img pb-40">
+              <img class="security-img w-100" src="{{securObj.site_image.url}}" alt="">
+            </div>
+          </div>
+         </div>
+         {% endfor %}
+        </div>
+      </section>
+
+      <!-- --------Security Service Details End----------- -->
+ <!------------- Security Guard Booking popup Start ------------------>
+ <div class="container">
+  <div class="modal fade" id="securityModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content technician">
+        <div class="modal-header">
+          <h5 class="modal-title">Submit the form to contact us Security</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="booking-from" role="form" method="post" action="#">
+            {% csrf_token %}
+            <label for="lName">Your Name<span class="star" style="color: red">*</span></label>
+            <input type="text" name="name" class="form-control" id="lName" required />
+            <label for="number">Mobile Number <span class="star" style="color: red">*</span></label>
+            <input type="text" name="mobile_number" class="form-control" id="number" required />
+
+
+            <div class="from-group">
+              <label for="comment">Security Type<span class="star" style="color: red">*</span></label >
+            <select class="form-control select" name="security_type" aria-invalid="false" placeholder="Choose Security" required>
+              <option value="Daily Security">Daily Security</option>
+              <option value="Monthly Security">Monthly Security</option>
+              <option value="House Security">House Security</option>
+              <option value="Office/Commercial Security">Office/Commercial Security</option>
+              <option value="Other Security">Other Security</option>
+            </select>
+            </div>
+            <div class="form-group pt-1">
+              <label for="comment">Address<span class="star" style="color: red">*</span></label >
+              <textarea class="text-input" name="address" rows="2" id="comment" required></textarea>
+            </div>
+            <div class="time-date d-flex">
+             <div class="boo">
+               <label for="datetimepicker11">Booking Date & Time</label>
+            <input
+              type="datetime-local"
+              id="meeting-time"
+              name="booking_datetime"
+              value="2020-01-30T19:30"
+              min="2018-06-07T00:00"
+              max="2031-06-14T00:00"/>
+             </div>
+             <div class="boo">
+               <label for="datetimepicker11">Working Date & Time</label>
+            <input
+              type="datetime-local"
+              id="meeting-time"
+              name="working_datetime"
+              value="2020-01-30T19:30"
+              min="2018-06-07T00:00"
+              max="2031-06-14T00:00"/>
+             </div>
+            </div>
+
+            <div class="form-group pt-1">
+              <label for="comment">Booking Details</label>
+              <textarea class="text-input" name="booking_details" rows="3" id="comment"></textarea>
+            </div>
+            <button
+              type="submit"
+              id="submit" name="submit"
+              class="btnsubmit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-------------Security Guard Booking popup End ------------------>
+
+
+
+{% endblock %}

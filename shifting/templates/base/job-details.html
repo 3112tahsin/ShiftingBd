@@ -1,0 +1,153 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} Shiftingbd | Job-Details {% endblock title %}
+
+{% block content %}
+
+<!-- page-title -->
+<div class="cmt-page-title-row">
+    <div class="cmt-page-title-row-inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Job Notice</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="{% url 'home' %}">Home</a>
+                        </span>
+                        <span>Job</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div><!-- page-title end-->
+
+
+<!--site-main start-->
+<div class="site-main">
+
+<div class="cmt-row sidebar cmt-sidebar-right cmt-bgcolor-grey clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-8 content-area">
+                <div class="alert-job">
+                    {{ContactForm.name}}
+                    {% if messages %}
+                         {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show p-0" role="alert">
+                                <p class="pt-15 pl-10" style="color: green;">{{message}}</p> 
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                   </div>
+                <!-- post -->
+                <article class="post cmt-blog-single clearfix">
+                     <!-- post-featured-wrapper -->
+                    <div class="cmt-post-featured-wrapper cmt-featured-wrapper">
+                        <div class="cmt-post-featured">
+                            <img class="img-fluid" src="{{jobCircular.image.url}}" alt="">
+                        </div>
+                    </div><!-- post-featured-wrapper end -->
+                    <!-- cmt-blog-classic-content -->
+                    <div class="cmt-blog-single-content">
+                        <div class="cmt-post-entry-header">
+                            <div class="post-meta">
+                                <h4>{{ jobCircular.interview_date }}</h4>
+                                <span class="cmt-meta-line byline"><i class="fa fa-user"></i>By Admin</span>
+                                <span class="cmt-meta-line tags-links"><i class="fa fa-comment"></i>45 Comments</span>
+                                <span class="cmt-meta-line entry-date"><i class="fa fa-calendar"></i><time class="entry-date published" datetime="2020-01-28T00:39:29+00:00">
+                                    {{ jobCircular.date }}</time>
+                                </span>
+                                <h4 class="mt-20">{{ jobCircular.job_title }}</h4>
+                                <p class="mt-25">{{ jobCircular.descriptions }}</p>
+                                <p class="mt-20">{{ jobCircular.address }}</p>
+
+                                    <p class="mt-20">সাক্ষাৎকারের স্থান:</p>
+
+                                    <p class="mt-20">{{ jobCircular.interview_address }}</p>
+                                    <p class="mt-20">
+                                        {{ jobCircular.interview_date_time }}</p>
+
+                                    <p class="mt-20"><b>বিশেষ দ্র:</b>  {{ jobCircular.note }}</p>
+                            </div>
+                        </div>
+                    </div><!-- cmt-blog-classic-content end -->
+                </article><!-- post end -->
+            </div>
+            <div class="col-lg-4 widget-area sidebar-right">
+                <aside class="widget widget-Categories with-title">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul>
+                        <ul>
+                            {% for popularTags in popularCatat %}
+                            <li class="active"><a href="#">{{ popularTags.categories_title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </ul>
+                </aside>
+                <aside class="widget widget-recent-post with-title">
+                    <h3 class="widget-title">Recent Posts</h3>
+                    <ul class="widget-post cmt-recent-post-list">
+                        {% for blogObj in blogSit %}
+                        <li>
+                            <a href="{% url 'blog-single'  blogObj.id %}"><img class="img-fluid" 
+                                src="{{ blogObj.picture.url }}" alt="post-img"></a>
+                            <span class="post-date">{{ blogObj.date }}</span>
+                            <a href="{% url 'blog-single'  blogObj.id %}">
+                                {{ blogObj.title|slice:":50" }}...
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+            </div>
+        </div><!-- row end -->
+       
+        <div class="row">
+            <div class="col-md-8">
+                 <div class="comments-option">
+                    <form method="POST" action="#" class="contact__form cmt-contactform-1 wrap-form clearfix" >
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label>
+                                    <span class="text-input"><input name="name" type="text" value="" placeholder="Your Name" required="required"></span>
+                                </label>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>
+                                    <span class="text-input"><input name="email" type="text" value="" placeholder="Your Email" required="required"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label>
+                                    <span class="text-input"><input name="phone" type="text" value="" placeholder="Phone Number" required="required"></span>
+                                </label>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>
+                                    <span class="text-input"><input name="subject" type="text" value="" placeholder="Application Type" required="required"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <label>
+                            <span class="text-input"><textarea name="messages" rows="3" placeholder="Message" required="required"></textarea></span>
+                        </label>
+                        <button name="submit" class="submit cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-fill cmt-btn-color-skincolor" type="submit">Send Message</button>
+                    </form>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--site-main end-->
+
+{% endblock %}

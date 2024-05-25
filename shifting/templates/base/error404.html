@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %} 404 Page Not Found {% endblock title %}
+
+{% block content %}
+
+<section class="error-404 err-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="clouds">
+                    <div class="cloud z1"></div>
+                    <div class="cloud z1_5"></div>
+                    <div class="cloud z2"></div>
+                    <div class="cloud z3"></div>
+                    <div class="cloud z4"></div>
+                    <div class="cloud z5"></div>
+                </div>
+                <div class='text-content'>
+                    <div class='_404'>404</div>
+                    <hr>
+                    <div class='h1'>Oops! Page Not Found</div>
+                    <div class='h2'>We couldn't find the page you were looking for.</div>
+                    <a class="cmt-btn cmt-btn-size-md cmt-btn-shape-square cmt-btn-style-border cmt-btn-color-white" href="{% url 'home' %}">Back To Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
